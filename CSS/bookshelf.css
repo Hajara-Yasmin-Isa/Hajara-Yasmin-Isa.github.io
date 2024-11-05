@@ -1,0 +1,104 @@
+/* General styles for all pages */
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+/* Header and menu styling (shared) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+}
+
+.hamburger-menu {
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+/* Bookshelf-specific styles */
+#bookshelf-page .bookshelf {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#bookshelf-page .bookshelf h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Shelf rows */
+#bookshelf-page .shelf-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#bookshelf-page .shelf-row::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #b76e79; /* Rose gold shelf color */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual books */
+#bookshelf-page .book {
+    text-align: center;
+    width: 150px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#bookshelf-page .book img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#bookshelf-page .book p {
+    font-size: 16px;
+    color: #333;
+}
+
+#bookshelf-page .book:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer (shared across pages) */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}

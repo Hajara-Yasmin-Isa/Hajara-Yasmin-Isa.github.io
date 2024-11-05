@@ -1,0 +1,99 @@
+/* General Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    scroll-behavior: smooth; /* Add smooth scrolling for all anchor links */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #b76e79; /* Rose gold color */
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #b76e79;
+    margin: 4px 0;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #fff;
+}
+
+.portrait {
+    width: 250px;
+    border-radius: 50%;
+    margin-right: 50px;
+    border: 5px solid #b76e79;
+}
+
+.intro {
+    max-width: 600px;
+}
+
+.intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #333;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Sidebar styles */
+.sidebar {
+    display: none; /* Initially hide sidebar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    border-right: 1px solid #eee;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.sidebar-open {
+    display: block; /* Show the sidebar when open */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
