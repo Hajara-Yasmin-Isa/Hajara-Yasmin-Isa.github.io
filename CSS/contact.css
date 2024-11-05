@@ -1,0 +1,220 @@
+/* contact.css */
+
+header .hamburger-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #b76e79;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #b76e79;
+    margin: 4px 0;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Move completely off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    padding: 20px;
+    transition: right 0.9s ease; /* Smooth transition */
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-open {
+    right: 0; /* Slide into view */
+}
+
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 500;
+}
+
+.overlay-visible {
+    display: block;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+/* Body and Container Styles */
+body {
+    background-color: #f7f7f7;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+
+.contact-form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Form Styling */
+.contact-form h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #333;
+    text-align: left;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-form label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    font-family: 'Lato', sans-serif;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px; /* Rounded input fields */
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #b76e79;
+    outline: none;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #b76e79, #ffb6c1); /* Rose-gold gradient button */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(135deg, #ffb6c1, #b76e79); /* Reverse gradient on hover */
+}
+
+/* Address & Illustration Section */
+.contact-info {
+    flex: 1;
+    text-align: center;
+    color: #333;
+}
+
+.contact-info h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #b76e79;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #666;
+}
+
+.contact-info a {
+    color: #b76e79;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Illustration Image Styling */
+.contact-info img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.envelope-icon {
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 70px;
+}
+
+footer .socials {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Center horizontally */
+}
+
+footer .socials li a img {
+    width: 24px; /* Set icon size */
+    height: 24px;
+    transition: transform 0.3s; /* Optional hover effect */
+}
+
+footer .socials li a img:hover {
+    transform: scale(1.1); /* Enlarge slightly on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+

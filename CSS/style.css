@@ -24,10 +24,15 @@ header {
     color: #b76e79;
 }
 
+/* Ensure hamburger menu is positioned to the right */
 .hamburger-menu {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    position: absolute; /* Ensure it's positioned independently */
+    top: 20px;          /* Adjust vertical alignment as needed */
+    right: 20px;        /* Align it to the right side */
+    z-index: 1000;      /* Ensure it appears above other elements */
 }
 
 .hamburger-menu span {
