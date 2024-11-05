@@ -18,13 +18,17 @@
         </div>
     </header>
 
-    <!-- Sidebar navigation -->
+    <!-- Sidebar navigation with close button -->
     <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
         <a href="#about">About Me</a>
         <a href="#research">Research</a>
         <a href="bookshelf.html">Bookshelf</a>
         <a href="contact.html">Contact</a>
     </nav>
+
+    <!-- Overlay for sidebar -->
+    <div class="overlay" id="overlay"></div>
 
     <!-- Main section with portrait and introduction -->
     <main class="hero">
@@ -35,20 +39,10 @@
         </div>
     </main>
 
-    <!-- Additional sections for smooth scrolling -->
-    <section id="about" style="height: 800px; padding: 20px; background-color: #f7f7f7;">
-        <h2>About Me</h2>
-        <p>Details about your background and interests.</p>
-    </section>
-    <section id="research" style="height: 800px; padding: 20px; background-color: #fff;">
-        <h2>Research</h2>
-        <p>Details about your research projects and interests.</p>
-    </section>
-
     <footer>
         <p>© 2024 Hajara-Yasmin Isa. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

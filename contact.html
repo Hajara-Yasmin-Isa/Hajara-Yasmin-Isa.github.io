@@ -11,13 +11,26 @@
     <!-- Header with logo and navigation -->
     <header class="header">
         <div class="logo">Your Logo</div>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li> <!-- Update with your homepage link -->
-                <li><a href="bookshelf.html">Bookshelf</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Sidebar navigation with close button -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#research">Research</a>
+        <a href="bookshelf.html">Bookshelf</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Overlay for sidebar -->
+    <div class="overlay" id="overlay"></div>
+
     </header>
 
     <!-- Main contact form section -->

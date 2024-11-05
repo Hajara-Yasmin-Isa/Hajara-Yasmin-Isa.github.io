@@ -1,10 +1,17 @@
 const hamburger = document.querySelector('.hamburger-menu');
 const sidebar = document.querySelector('.sidebar');
+const closeBtn = document.getElementById('close-btn');
+const overlay = document.getElementById('overlay');
 
-hamburger.addEventListener('click', () => {
+function toggleSidebar() {
     sidebar.classList.toggle('sidebar-open');
-    hamburger.classList.toggle('is-active'); // Optional: to animate the hamburger icon
-});
+    overlay.classList.toggle('overlay-visible');
+    hamburger.classList.toggle('is-active');
+}
+
+hamburger.addEventListener('click', toggleSidebar);
+closeBtn.addEventListener('click', toggleSidebar);
+overlay.addEventListener('click', toggleSidebar);
 
 /* Optional: Add smooth scrolling */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -15,6 +22,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
         // Close the sidebar after clicking a link
         sidebar.classList.remove('sidebar-open');
+        overlay.classList.remove('overlay-visible');
         hamburger.classList.remove('is-active');
     });
 });
