@@ -1,5 +1,14 @@
 /* contact.css */
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
 header .hamburger-menu {
     position: absolute;
     right: 20px;

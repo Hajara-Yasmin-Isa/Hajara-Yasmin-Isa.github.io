@@ -1,3 +1,16 @@
+header .hamburger-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #b76e79;
+}
+
 /* General styles for all pages */
 body {
     font-family: 'Lato', sans-serif;
@@ -8,30 +21,74 @@ body {
 }
 
 /* Header and menu styling (shared) */
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
 }
 
-.logo {
-    font-size: 24px;
-    font-family: 'Playfair Display', serif;
-}
 
 .hamburger-menu {
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
 }
 
 .hamburger-menu span {
-    display: block;
     width: 25px;
     height: 3px;
+    background-color: #b76e79;
+    margin: 4px 0;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Move completely off-screen */
+    width: 250px;
+    height: 100%;
     background-color: #fff;
-    margin: 5px 0;
+    border-left: 1px solid #eee;
+    padding: 20px;
+    transition: right 0.9s ease; /* Smooth transition */
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-open {
+    right: 0; /* Slide into view */
+}
+
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 500;
+}
+
+.overlay-visible {
+    display: block;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
 }
 
 /* Bookshelf-specific styles */
@@ -55,17 +112,19 @@ body {
     justify-content: space-around;
     margin-bottom: 50px;
     position: relative;
+    padding-bottom: 30px; /* Create space for the shadow shelf */
 }
 
 #bookshelf-page .shelf-row::after {
     content: '';
     position: absolute;
-    bottom: -20px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 10px;
+    height: 15px;  /* Height of the shelf */
     background-color: #b76e79; /* Rose gold shelf color */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 /* Individual books */
@@ -95,10 +154,9 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer (shared across pages) */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
+    border-top: 1px solid #eee;
 }
