@@ -1,3 +1,34 @@
+/* Canvas Styling */
+#animatedCanvas {
+    position: absolute; /* Absolute positioning to float behind the portrait */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Layer the canvas below the portrait but above the body background */
+    pointer-events: none; /* Ensures canvas doesn't block interaction */
+}
+
+/* Portrait Image */
+.portrait {
+    width: 250px;
+    border-radius: 50%;
+    margin-right: 50px;
+    border: 5px solid #b76e79;
+    z-index: 2; /* Ensure the portrait is above the canvas */
+    position: relative; /* This is key to maintaining its position and z-index */
+}
+
+/* Main Content Styles */
+.hero {
+    position: relative; /* Create a stacking context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #fff;
+}
+
 /* General Styles */
 body {
     font-family: 'Lato', sans-serif;
@@ -162,6 +193,7 @@ header .hamburger-menu {
     align-items: center;
     padding: 100px 20px;
     background-color: #fff;
+    z-index: 3; /* Ensure portrait stays above the canvas */
 }
 
 .portrait {
@@ -173,6 +205,8 @@ header .hamburger-menu {
 
 .intro {
     max-width: 600px;
+    z-index: 3; /* Ensure text stays above the canvas */
+    position: relative; /* Needed to manage z-index in stacking order */
 }
 
 .intro h1 {
@@ -186,9 +220,22 @@ header .hamburger-menu {
     color: #666;
 }
 
+/* Canvas for Background Animation */
+#networkCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send the canvas behind all other content */
+    background-color: #f7f7f7;
+}
+
 footer {
     text-align: center;
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid #eee;
+    position: relative;
+    z-index: 1; /* Ensure it stays below the portrait and text */
 }

@@ -19,6 +19,7 @@
         </div>
     </header>
 
+
    <!-- Sidebar navigation with close button -->
     <nav class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">&times;</button>
@@ -31,9 +32,9 @@
                 <i class="fas fa-user"></i>
                 <span>About Me</span>
             </a>
-            <a href="#research" class="sidebar-item">
-                <i class="fas fa-laptop-code"></i>
-                <span>Research</span>
+            <a href="portfolio.html" class="sidebar-item">
+                <i class="fas fa-folder-open"></i>
+                <span>Portfolio</span>
             </a>
             <a href="bookshelf.html" class="sidebar-item">
                 <i class="fas fa-book"></i>
@@ -46,13 +47,15 @@
         </div>
     </nav>
 
-
-
     <!-- Overlay for sidebar -->
     <div class="overlay" id="overlay"></div>
 
+    
+
     <!-- Main section with portrait and introduction -->
     <main class="hero">
+         <!-- Background Animation Canvas -->
+        <canvas id="networkCanvas"></canvas>
         <img src="images/Yasmin.png" alt="Your Portrait" class="portrait">
         <div class="intro">
             <h1>Hello, I'm Hajara-Yasmin Isa</h1>
@@ -65,5 +68,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/background-animation.js"></script>
 </body>
 </html>
