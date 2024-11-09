@@ -5,6 +5,7 @@ header .hamburger-menu {
     z-index: 1000;
 }
 
+
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
@@ -223,6 +224,151 @@ header {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Book container style */
+#bookshelf-page .book {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 200px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* To clip the pseudo-element for the spine */
+}
+
+/* Spine effect on the left side */
+#bookshelf-page .book.coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;  /* Thickness of the spine */
+    height: 100%;
+    background-color: #d0d0d0; /* Slightly darker for the spine */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Page lines on the right side */
+#bookshelf-page .book.coming-soon::after {
+    content: '';
+    position: absolute;
+    bottom: 10px; /* Align near the bottom */
+    right: 10px;  /* Offset from the right side */
+    width: 70%;
+    height: 2px;
+    background-color: #b0b0b0;
+    border-radius: 1px;
+    box-shadow: 0 -5px 0 #b0b0b0, 0 -10px 0 #b0b0b0; /* Additional lines to create page effect */
+}
+
+#bookshelf-page .book p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    z-index: 1; /* Ensure text is above pseudo-elements */
+}
+
+
+/* Styling for books with "Coming Soon" message */
+#bookshelf-page .book.coming-soon {
+    background-color: #f2f2f2; /* Light background for 'Coming Soon' */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bookshelf-page .book.coming-soon p {
+    color: #ccc; /* Light gray text */
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+#bookshelf-page .book {
+    background-size: cover;
+    background-position: center;
+    color: white; /* Optional: to ensure text is visible on cover */
+}
+
+#bookshelf-page .book.coming-soon {
+    background: #f2f2f2; /* Light background for 'Coming Soon' */
+}
+
+#bookshelf-page .book img {
+    display: none; /* Hide the img tag if you’re using a background image */
+}
+
+/* Styles for the zoom effect */
+.zoomed-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Make sure it appears above everything else */
+}
+
+.zoomed-book {
+    width: 300px; /* Adjust size for zoomed book */
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+#zoomed-book-image {
+    max-width: 60%; /* Adjust this value to control the width */
+    max-height: 70%; /* Adjust this value to control the height */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for better focus */
+}
+
+
+.close-zoom-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;  /* Make the X larger */
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 0.5rem 1rem;  /* Adjust padding for a larger click area */
+    cursor: pointer;
+    border-radius: 50%;    /* Optional: make it circular */
+    z-index: 1001;         /* Ensure it appears above the zoomed image */
+    transition: background 0.3s;  /* Optional: add a hover effect */
+}
+
+#zoomed-book-overlay .close-zoom-btn:hover {
+    background: rgba(0, 0, 0, 0.8);  /* Darker background on hover */
+}
+
+/* Adjust the z-index of .zoomed-overlay */
+.zoomed-overlay {
+    z-index: 10000; /* Ensure it is above other elements */
+}
+
+/* Ensure close-zoom-btn has high z-index when overlay is open */
+.close-zoom-btn {
+    z-index: 10001; /* One level above the zoomed overlay */
+}
+
+/* Lower the z-index of .hamburger-menu only when the zoom is active */
+.zoom-active .hamburger-menu {
+    z-index: 500; /* Lower than .zoomed-overlay */
+}
+
 
 footer {
     text-align: center;
