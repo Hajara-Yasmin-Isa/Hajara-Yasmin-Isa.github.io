@@ -6,7 +6,7 @@ body {
     padding: 0;
     background-color: #f7f7f7;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
 }
 
 header {
@@ -24,15 +24,23 @@ header {
     color: #b76e79;
 }
 
-/* Ensure hamburger menu is positioned to the right */
+/* Hamburger Menu */
+
+header .hamburger-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+}
+
 .hamburger-menu {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    position: absolute; /* Ensure it's positioned independently */
-    top: 20px;          /* Adjust vertical alignment as needed */
-    right: 20px;        /* Align it to the right side */
-    z-index: 1000;      /* Ensure it appears above other elements */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .hamburger-menu span {
@@ -42,26 +50,96 @@ header {
     margin: 4px 0;
 }
 
-/* Sidebar styles */
+/* Sidebar Styles */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -100%; /* Move completely off-screen */
+    right: -250px; /* Move off-screen to the right initially */
     width: 250px;
     height: 100%;
     background-color: #fff;
-    border-left: 1px solid #eee;
-    padding: 20px;
-    transition: right 0.9s ease; /* Smooth transition */
+    color: #333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
     z-index: 1000;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 0 5px rgba(198, 131, 131, 0.2); /* Shadow on the left */
 }
 
+/* Sidebar open class to slide it in from the right */
 .sidebar-open {
-    right: 0; /* Slide into view */
+    transform: translateX(-250px); /* Slide into view from the right */
 }
 
-/* Overlay styles */
+.sidebar .sidebar-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sidebar .sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+    color: #bbb;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+}
+
+.sidebar .sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+    color: #bbb;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+}
+
+.sidebar .sidebar-item i {
+    font-size: 20px;
+    margin-right: 20px; /* Spacing between icon and text */
+    display: flex;
+    align-items: flex-start; /* Align items to the left */
+}
+
+.sidebar .sidebar-item span {
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start; /* Align items to the left */
+}
+
+.sidebar .sidebar-item:hover {
+    background-color: #bc7f7f; /* Highlight color */
+    color: #fff;
+}
+
+/* Close button styling */
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Position it on the left inside the sidebar */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements in the sidebar */
+}
+
+.sidebar-open .close-btn {
+    display: block; /* Ensure it's visible when sidebar is open */
+}
+
+/* Overlay Styles */
 .overlay {
     position: fixed;
     top: 0;
@@ -77,19 +155,7 @@ header {
     display: block;
 }
 
-/* Close button */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-}
-
-/* Main content styles */
+/* Main Content Styles */
 .hero {
     display: flex;
     justify-content: center;
