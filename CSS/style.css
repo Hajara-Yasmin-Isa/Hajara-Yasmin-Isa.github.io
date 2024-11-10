@@ -14,9 +14,11 @@
     width: 250px;
     border-radius: 50%;
     margin-right: 50px;
-    border: 5px solid #b76e79;
+    border: 5px linear-gradient(145deg, #b76e79, #d78a8a); /* Metallic background */
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
     z-index: 2; /* Ensure the portrait is above the canvas */
     position: relative; /* This is key to maintaining its position and z-index */
+
 }
 
 /* Main Content Styles */
@@ -56,7 +58,6 @@ header {
 }
 
 /* Hamburger Menu */
-
 header .hamburger-menu {
     position: absolute;
     right: 20px;
@@ -77,7 +78,8 @@ header .hamburger-menu {
 .hamburger-menu span {
     width: 25px;
     height: 3px;
-    background-color: #b76e79;
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
     margin: 4px 0;
 }
 
@@ -123,33 +125,15 @@ header .hamburger-menu {
     border-radius: 8px;
 }
 
-.sidebar .sidebar-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 15px 20px;
-    color: #bbb;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 8px;
-}
-
-.sidebar .sidebar-item i {
-    font-size: 20px;
-    margin-right: 20px; /* Spacing between icon and text */
-    display: flex;
-    align-items: flex-start; /* Align items to the left */
-}
-
-.sidebar .sidebar-item span {
-    font-weight: bold;
-    display: flex;
-    align-items: flex-start; /* Align items to the left */
+/* Add spacing between the icon and text */
+.sidebar .sidebar-item i { /* Assuming you are using <i> for icons */
+    margin-right: 15px; /* Adjust space as needed */
 }
 
 .sidebar .sidebar-item:hover {
-    background-color: #bc7f7f; /* Highlight color */
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+    
     color: #fff;
 }
 
@@ -157,7 +141,7 @@ header .hamburger-menu {
 .sidebar .close-btn {
     position: absolute;
     top: 10px;
-    right: 10px; /* Position it on the left inside the sidebar */
+    right: 10px;
     background: none;
     border: none;
     font-size: 24px;
@@ -201,6 +185,7 @@ header .hamburger-menu {
     border-radius: 50%;
     margin-right: 50px;
     border: 5px solid #b76e79;
+    background: linear-gradient(145deg, #b76e79, #d78a8a); /* Metallic background */
 }
 
 .intro {
@@ -231,11 +216,69 @@ header .hamburger-menu {
     background-color: #f7f7f7;
 }
 
+.pink-slab {
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure it's in the stacking context */
+    z-index: 10; /* Bring it to the foreground */
+}
+
+h2 {
+    font-family: 'Playfair Display', serif; /* Same font as h1 */
+    font-size: 30px; /* Adjust size as needed */
+    color: #f0f0f0; /* Light gray for the text */
+    background: linear-gradient(145deg, #e0e0e0, #ffffff, #d1d1d1, #f0f0f0); /* Metallic gradient */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari support */
+
+}
+
+
+/* Full-width continuous scroll animation for the carousel */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.carousel-container {
+    overflow: hidden; /* Hide overflow to create a seamless effect */
+    width: 100vw;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    width: calc(200% + 20px); /* Twice the content width to allow seamless loop */
+    animation: scrollCarousel 20s linear infinite; /* Adjust the speed as needed */
+}
+
+.carousel-item {
+    flex: 0 0 25vw; /* Adjust width based on items per view */
+    min-height: 40vh;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 footer {
     text-align: center;
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid #eee;
     position: relative;
-    z-index: 1; /* Ensure it stays below the portrait and text */
+    z-index: 10; /* Bring it to the foreground */
+    background-color: transparent;
 }

@@ -1,27 +1,24 @@
-header .hamburger-menu {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    z-index: 1000;
+/* Main Content Styles */
+.hero {
+    position: relative; /* Create a stacking context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #fff;
 }
 
-
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: #b76e79;
-}
-
-/* General styles for all pages */
+/* General Styles */
 body {
     font-family: 'Lato', sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* Header and menu styling (shared) */
 header {
     display: flex;
     justify-content: space-between;
@@ -31,17 +28,35 @@ header {
     border-bottom: 1px solid #eee;
 }
 
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #b76e79;
+}
+
+/* Hamburger Menu */
+header .hamburger-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+}
 
 .hamburger-menu {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .hamburger-menu span {
     width: 25px;
     height: 3px;
-    background-color: #b76e79;
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
     margin: 4px 0;
 }
 
@@ -87,33 +102,15 @@ header {
     border-radius: 8px;
 }
 
-.sidebar .sidebar-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 15px 20px;
-    color: #bbb;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 8px;
-}
-
-.sidebar .sidebar-item i {
-    font-size: 20px;
-    margin-right: 20px; /* Spacing between icon and text */
-    display: flex;
-    align-items: flex-start; /* Align items to the left */
-}
-
-.sidebar .sidebar-item span {
-    font-weight: bold;
-    display: flex;
-    align-items: flex-start; /* Align items to the left */
+/* Add spacing between the icon and text */
+.sidebar .sidebar-item i { /* Assuming you are using <i> for icons */
+    margin-right: 15px; /* Adjust space as needed */
 }
 
 .sidebar .sidebar-item:hover {
-    background-color: #bc7f7f; /* Highlight color */
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+    
     color: #fff;
 }
 
@@ -121,7 +118,7 @@ header {
 .sidebar .close-btn {
     position: absolute;
     top: 10px;
-    right: 10px; /* Position it on the left inside the sidebar */
+    right: 10px;
     background: none;
     border: none;
     font-size: 24px;
