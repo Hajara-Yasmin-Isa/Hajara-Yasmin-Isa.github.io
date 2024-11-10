@@ -1,0 +1,254 @@
+/* contact.css */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+/* Main Content Styles */
+.hero {
+    position: relative; /* Create a stacking context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #fff;
+}
+
+/* General Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #b76e79;
+}
+
+/* Hamburger Menu */
+header .hamburger-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+    margin: 4px 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Move off-screen to the right initially */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    color: #333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(198, 131, 131, 0.2); /* Shadow on the left */
+}
+
+/* Sidebar open class to slide it in from the right */
+.sidebar-open {
+    transform: translateX(-250px); /* Slide into view from the right */
+}
+
+.sidebar .sidebar-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sidebar .sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+    color: #bbb;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+}
+
+/* Add spacing between the icon and text */
+.sidebar .sidebar-item i { /* Assuming you are using <i> for icons */
+    margin-right: 15px; /* Adjust space as needed */
+}
+
+.sidebar .sidebar-item:hover {
+    background: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
+    box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.3), inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+/* Close button styling */
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements in the sidebar */
+}
+
+.sidebar-open .close-btn {
+    display: block; /* Ensure it's visible when sidebar is open */
+}
+
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 500;
+}
+
+.overlay-visible {
+    display: block;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Grid Layout for Projects Container */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 60px; /* Add some space below the header */
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px 15px; /* Further reduced padding to minimize white space */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    max-width: 100%; /* Ensures the image doesn't overflow */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px;
+    margin: 2px 0; /* Further reduced margin to minimize space around the image */
+    transform: scale(0.5); /* Adjust scaling to fit the card proportionately */
+    transform-origin: center;
+}
+
+
+.project-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #b76e79;
+    margin: 5px 0;
+}
+
+.project-card p {
+    margin: 5px 0; /* Same adjustment to text spacing */
+}
+
+/* Tags for Tech Stack */
+.tech-tags {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: #f3e1e1;
+    color: #b76e79;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Project Link Styling */
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #b76e79;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid #b76e79;
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.project-link:hover {
+    color: #a15e5e;
+    border-bottom-color: #a15e5e;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
