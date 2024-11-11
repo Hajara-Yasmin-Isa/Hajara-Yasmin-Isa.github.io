@@ -35,14 +35,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #fff;
+    color: #b76e79;
     border-bottom: 1px solid #eee;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    color: #b76e79;
+    color: linear-gradient(145deg, #b76e79, #d78a8a, #a15e5e, #d9a4a4);
 }
 
 /* Hamburger Menu */
