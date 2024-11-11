@@ -26,3 +26,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         hamburger.classList.remove('is-active');
     });
 });
+
+// Form submission with clearing fields on success
+const form = document.querySelector('form'); // Select the form element
+
+if (form) {
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Capture form data
+        const formData = new FormData(form);
+
+        // Send data to Formspree
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                alert('Your message has been sent successfully!');
+                form.reset(); // Clear form fields
+            } else {
+                alert('Oops! There was a problem sending your message.');
+            }
+        } catch (error) {
+            alert('There was an error sending your message. Please try again later.');
+        }
+    });
+}
