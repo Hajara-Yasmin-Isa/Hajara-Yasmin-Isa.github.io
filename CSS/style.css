@@ -265,7 +265,7 @@ h2 {
 }
 
 .carousel-item {
-    flex: 0 0 25vw; /* Adjust width based on items per view */
+    flex: 0 0 30vw; /* Adjust width based on items per view */
     min-height: 40vh;
     padding: 30px;
     background: linear-gradient(145deg, #e0e0e0, #ffffff, #d1d1d1, #f0f0f0); /* Metallic gradient */
