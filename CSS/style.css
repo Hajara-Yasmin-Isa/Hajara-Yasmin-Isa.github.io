@@ -238,18 +238,23 @@ h2 {
 
 }
 
+.carousel {
+    display: flex;
+    gap: 20px;
+    width: max-content; /* Changed from calc(200% + 20px) */
+    animation: scrollCarousel 40s linear infinite; /* Slowed down for smoother appearance */
+}
 
-
-
-/* Full-width continuous scroll animation for the carousel */
 @keyframes scrollCarousel {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-50%); /* Moves exactly half the carousel width */
     }
 }
+
+
 
 .carousel-container {
     overflow: hidden; /* Hide overflow to create a seamless effect */
@@ -257,15 +262,10 @@ h2 {
     position: relative;
 }
 
-.carousel {
-    display: flex;
-    gap: 20px;
-    width: calc(200% + 20px); /* Twice the content width to allow seamless loop */
-    animation: scrollCarousel 20s linear infinite; /* Adjust the speed as needed */
-}
+
 
 .carousel-item {
-    flex: 0 0 30vw; /* Adjust width based on items per view */
+    flex: 0 0 45vw; /* Adjust width based on items per view */
     min-height: 40vh;
     padding: 30px;
     background: linear-gradient(145deg, #e0e0e0, #ffffff, #d1d1d1, #f0f0f0); /* Metallic gradient */
@@ -290,4 +290,52 @@ footer {
     position: relative;
     z-index: 10; /* Bring it to the foreground */
     background-color: transparent;
+}
+
+/* Remove padding from carousel items to prevent image cutoff */
+.carousel-item {
+    padding: 0; /* Remove the 30px padding */
+    position: relative; /* Enable absolute positioning for text overlay */
+    overflow: hidden; /* Ensure text doesn't spill outside */
+}
+
+/* Carousel item styling */
+.carousel-item {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crops image to fit while maintaining aspect ratio */
+}
+
+/* Text below the image */
+.carousel-text {
+    background: linear-gradient(145deg, #e0e0e0, #ffffff, #d1d1d1, #f0f0f0);
+    padding: 20px;
+    text-align: left;
+    min-height: 120px; /* Ensures text area has consistent height */
+}
+
+.carousel-text h3 {
+    margin: 0 0 8px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.carousel-text p {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.carousel:hover {
+    animation-play-state: paused;
 }

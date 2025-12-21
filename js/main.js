@@ -28,4 +28,16 @@ document.addEventListener('DOMContentLoaded', function () {
             hamburger.classList.remove('is-active');
         });
     });
+
+    // Carousel functionality - ensure continuous rotation
+    const carousel = document.querySelector('.carousel');
+    
+    // Pause animation on hover
+    carousel.addEventListener('mouseenter', function() {
+        this.style.animationPlayState = 'paused';
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+        this.style.animationPlayState = 'running';
+    });
 });
