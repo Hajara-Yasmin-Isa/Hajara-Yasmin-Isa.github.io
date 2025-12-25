@@ -1,3 +1,17 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  body.menu-open {
+    overflow: hidden;
+  }
+
+
 /* Canvas Styling */
 #animatedCanvas {
     position: absolute; /* Absolute positioning to float behind the portrait */
@@ -83,28 +97,29 @@ header .hamburger-menu {
     margin: 4px 0;
 }
 
-/* Sidebar Styles */
+/* Sidebar style */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* Move off-screen to the right initially */
+    right: 0;
     width: 250px;
+    max-width: 80vw;
     height: 100%;
     background-color: #fff;
-    color: #333;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    transform: translateX(100%); /* fully hidden */
     transition: transform 0.3s ease;
     z-index: 1000;
-    box-shadow: -2px 0 5px rgba(198, 131, 131, 0.2); /* Shadow on the left */
-}
+    box-shadow: -2px 0 5px rgba(198, 131, 131, 0.2);
+  }
+  
+  .sidebar-open {
+    transform: translateX(0); /* slide in */
+  }
+  
 
-/* Sidebar open class to slide it in from the right */
-.sidebar-open {
-    transform: translateX(-250px); /* Slide into view from the right */
-}
 
 .sidebar .sidebar-content {
     width: 100%;
@@ -339,3 +354,92 @@ footer {
 .carousel:hover {
     animation-play-state: paused;
 }
+
+
+/* ===========================
+   MOBILE RESPONSIVE FIXES
+   =========================== */
+   @media (max-width: 768px) {
+
+    /* HERO SECTION */
+    .hero {
+      flex-direction: column;
+      padding: 120px 16px 60px;
+      text-align: center;
+    }
+  
+    .portrait {
+      margin-right: 0;
+      margin-bottom: 20px;
+      width: 200px;
+    }
+  
+    .intro {
+      max-width: 100%;
+    }
+  
+    .intro h1 {
+      font-size: 1.8rem;
+    }
+  
+    .intro p {
+      font-size: 1rem;
+    }
+  
+    /* SIDEBAR */
+    .sidebar {
+      width: 80vw;
+    }
+  
+    .sidebar-open {
+      transform: translateX(-80vw);
+    }
+  
+    /* PINK SLAB */
+    .pink-slab {
+      padding: 20px;
+      min-height: auto;
+    }
+  
+    h2 {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+  
+    /* CAROUSEL */
+    .carousel-container {
+      width: 100%;
+    }
+  
+    .carousel {
+      gap: 12px;
+    }
+  
+    .carousel-item {
+      flex: 0 0 80vw;
+      min-height: auto;
+    }
+  
+    .carousel-item img {
+      height: 220px;
+    }
+  
+    .carousel-text {
+      padding: 14px;
+    }
+  
+    .carousel-text h3 {
+      font-size: 1rem;
+    }
+  
+    .carousel-text p {
+      font-size: 0.85rem;
+    }
+  
+    /* FOOTER */
+    footer {
+      font-size: 0.8rem;
+      padding: 12px;
+    }
+  }
+  
