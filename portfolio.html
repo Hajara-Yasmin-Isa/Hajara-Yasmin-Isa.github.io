@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diagonal Split Page with Interactive Color Swap</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research / Projects</title>
+
   <style>
     * {
       margin: 0;
@@ -11,19 +12,26 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       font-family: Arial, sans-serif;
     }
 
+    body {
+      overflow: hidden;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
     .container {
+      position: relative;
       height: 100vh;
       width: 100%;
-      position: relative;
       background: linear-gradient(120deg, #bc7f7f 50%, white 50%);
+      cursor: pointer;
       transition: background 0.3s ease;
     }
 
+    /* ===== CENTER CIRCLE ===== */
     .circle {
       position: absolute;
       top: 50%;
@@ -33,47 +41,62 @@
       height: 200px;
       background-color: white;
       border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 3;
       transition: background-color 0.3s ease;
     }
 
-    /* Text on the left and right sides */
-    .text-left, .text-right {
+    /* ===== TEXT ===== */
+    .text-left,
+    .text-right {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       font-size: 48px;
       font-weight: bold;
-      z-index: 1;
+      z-index: 2;
       transition: color 0.3s ease;
+      white-space: nowrap;
     }
 
     .text-left {
-      left: 15%;
+      left: 12%;
       color: white;
     }
 
     .text-right {
-      right: 15%;
+      right: 12%;
       color: #bc7f7f;
     }
 
-    .circle:hover {
-      cursor: default;
-    }
+    /* ===== MOBILE FIXES ===== */
+    @media (max-width: 768px) {
+  .text-left,
+  .text-right {
+    font-size: 24px;
+    transform: none;
+    width: auto;
+    white-space: nowrap;
+  }
 
-    .container {
-    cursor: pointer;
-    }
+  .text-left {
+    left: 10%;
+    top: 18%;
+  }
+
+  .text-right {
+    right: 10%;
+    top: 78%;
+  }
+
+  .circle {
+    width: 140px;
+    height: 140px;
+  }
+}
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="text-left">Research</div>
@@ -87,43 +110,37 @@
     const textLeft = document.querySelector('.text-left');
     const textRight = document.querySelector('.text-right');
 
-    // Detect mouse movement over the container
-    container.addEventListener('mousemove', function(event) {
-      const screenWidth = window.innerWidth;
-      const mouseX = event.clientX;
+    /* ===== DESKTOP HOVER ONLY ===== */
+    if (window.matchMedia('(hover: hover)').matches) {
+      container.addEventListener('mousemove', (event) => {
+        const midpoint = window.innerWidth / 2;
 
-      // Check if the mouse is on the left or right side
-      if (mouseX < screenWidth / 2) {
-        // Mouse is on the left side
-        container.style.background = 'linear-gradient(120deg, white 50%, #bc7f7f 50%)';
-        circle.style.backgroundColor = '#bc7f7f';
-        circle.style.color = 'white';
+        if (event.clientX < midpoint) {
+          container.style.background = 'linear-gradient(120deg, white 50%, #bc7f7f 50%)';
+          circle.style.backgroundColor = '#bc7f7f';
+          textLeft.style.color = '#bc7f7f';
+          textRight.style.color = 'white';
+        } else {
+          container.style.background = 'linear-gradient(120deg, #bc7f7f 50%, white 50%)';
+          circle.style.backgroundColor = 'white';
+          textLeft.style.color = 'white';
+          textRight.style.color = '#bc7f7f';
+        }
+      });
+    }
 
-        // Swap colors for text
-        textLeft.style.color = '#bc7f7f';
-        textRight.style.color = 'white';
-      } else {
-        // Mouse is on the right side
-        container.style.background = 'linear-gradient(120deg, #bc7f7f 50%, white 50%)';
-        circle.style.backgroundColor = 'white';
-        circle.style.color = '#bc7f7f';
+    /* ===== CLICK NAVIGATION (DESKTOP + MOBILE) ===== */
+    container.addEventListener('click', (event) => {
+      const rect = container.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
 
-        // Swap colors for text
-        textLeft.style.color = 'white';
-        textRight.style.color = '#bc7f7f';
-      }
-    });
+      // Approximate diagonal decision
+      const diagonalY = (rect.height / rect.width) * x;
 
-    // When clicking on the container, navigate to different pages
-    container.addEventListener('click', function(event) {
-      const screenWidth = window.innerWidth;
-      const clickedX = event.clientX;
-
-      if (clickedX < screenWidth / 2) {
-        // Clicked on the left side
+      if (y > diagonalY) {
         window.location.href = 'research.html';
       } else {
-        // Clicked on the right side
         window.location.href = 'projects.html';
       }
     });
