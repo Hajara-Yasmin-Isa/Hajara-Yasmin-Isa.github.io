@@ -109,41 +109,66 @@
     const circle = document.querySelector('.circle');
     const textLeft = document.querySelector('.text-left');
     const textRight = document.querySelector('.text-right');
-
-    /* ===== DESKTOP HOVER ONLY ===== */
+    
+    let activeSide = 'research'; // default
+    
+    function activateResearch() {
+      activeSide = 'research';
+      container.style.background =
+        'linear-gradient(120deg, white 50%, #bc7f7f 50%)';
+      circle.style.backgroundColor = '#bc7f7f';
+      circle.style.color = 'white';
+      textLeft.style.color = '#bc7f7f';
+      textRight.style.color = 'white';
+    }
+    
+    function activateProjects() {
+      activeSide = 'projects';
+      container.style.background =
+        'linear-gradient(120deg, #bc7f7f 50%, white 50%)';
+      circle.style.backgroundColor = 'white';
+      circle.style.color = '#bc7f7f';
+      textLeft.style.color = 'white';
+      textRight.style.color = '#bc7f7f';
+    }
+    
+    /* ===== DESKTOP: HOVER SELECTS ===== */
     if (window.matchMedia('(hover: hover)').matches) {
       container.addEventListener('mousemove', (event) => {
         const midpoint = window.innerWidth / 2;
-
         if (event.clientX < midpoint) {
-          container.style.background = 'linear-gradient(120deg, white 50%, #bc7f7f 50%)';
-          circle.style.backgroundColor = '#bc7f7f';
-          textLeft.style.color = '#bc7f7f';
-          textRight.style.color = 'white';
+          activateResearch();
         } else {
-          container.style.background = 'linear-gradient(120deg, #bc7f7f 50%, white 50%)';
-          circle.style.backgroundColor = 'white';
-          textLeft.style.color = 'white';
-          textRight.style.color = '#bc7f7f';
+          activateProjects();
         }
       });
     }
-
-    /* ===== CLICK NAVIGATION (DESKTOP + MOBILE) ===== */
-    container.addEventListener('click', (event) => {
+    
+    /* ===== MOBILE: TAP POSITION SELECTS ===== */
+    container.addEventListener('touchstart', (event) => {
+      const touch = event.touches[0];
       const rect = container.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      // Approximate diagonal decision
-      const diagonalY = (rect.height / rect.width) * x;
-
-      if (y > diagonalY) {
+      const x = touch.clientX - rect.left;
+      const midpoint = rect.width / 2;
+    
+      if (x < midpoint) {
+        activateResearch();
+      } else {
+        activateProjects();
+      }
+    });
+    
+    /* ===== CLICK / TAP CONFIRMS ===== */
+    container.addEventListener('click', () => {
+      if (activeSide === 'research') {
         window.location.href = 'research.html';
       } else {
         window.location.href = 'projects.html';
       }
     });
-  </script>
+    </script>
+    
+    
+    
 </body>
 </html>
