@@ -94,6 +94,20 @@
     height: 140px;
   }
 }
+
+    /* ===== HINT LABEL ===== */
+    .hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.4);
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 4;
+    }
   </style>
 </head>
 
@@ -102,6 +116,7 @@
     <div class="text-left">Research</div>
     <div class="text-right">Projects</div>
     <div class="circle"></div>
+    <span class="hint" id="hint"></span>
   </div>
 
   <script>
@@ -111,6 +126,14 @@
     const textRight = document.querySelector('.text-right');
     
     let activeSide = 'research'; // default
+
+    // Set hint text based on device type
+    const hint = document.getElementById('hint');
+    if (window.matchMedia('(hover: hover)').matches) {
+      hint.textContent = 'hover to select \u00b7 click to explore';
+    } else {
+      hint.textContent = 'tap top for Research \u00b7 tap bottom for Projects';
+    }
     
     function activateResearch() {
       activeSide = 'research';
@@ -145,16 +168,28 @@
     }
     
     /* ===== MOBILE: TAP POSITION SELECTS ===== */
+    /* On mobile the layout is top=Research, bottom=Projects, so use Y axis */
     container.addEventListener('touchstart', (event) => {
       const touch = event.touches[0];
       const rect = container.getBoundingClientRect();
-      const x = touch.clientX - rect.left;
-      const midpoint = rect.width / 2;
-    
-      if (x < midpoint) {
-        activateResearch();
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        const y = touch.clientY - rect.top;
+        const midpoint = rect.height / 2;
+        if (y < midpoint) {
+          activateResearch();
+        } else {
+          activateProjects();
+        }
       } else {
-        activateProjects();
+        const x = touch.clientX - rect.left;
+        const midpoint = rect.width / 2;
+        if (x < midpoint) {
+          activateResearch();
+        } else {
+          activateProjects();
+        }
       }
     });
     

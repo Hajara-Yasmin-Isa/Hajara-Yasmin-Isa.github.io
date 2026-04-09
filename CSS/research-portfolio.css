@@ -31,6 +31,9 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -245,4 +248,34 @@ footer {
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid #eee;
+}
+
+/* ===========================
+   MOBILE RESPONSIVE FIXES
+   =========================== */
+@media (max-width: 768px) {
+
+    main {
+        margin: 16px;
+        padding: 16px;
+    }
+
+    /* Make the table scroll horizontally instead of overflowing */
+    main {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 500px; /* force scroll rather than squishing */
+    }
+
+    thead th,
+    tbody td {
+        padding: 8px 6px;
+        font-size: 0.875rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
 }

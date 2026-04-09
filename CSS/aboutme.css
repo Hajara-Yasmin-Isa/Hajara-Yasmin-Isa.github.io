@@ -31,6 +31,9 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -279,4 +282,47 @@ footer {
     background-color: #fff;
     border-top: 1px solid #eee;
     z-index: 10; /* Bring it to the foreground */
+}
+
+/* ===========================
+   MOBILE RESPONSIVE FIXES
+   =========================== */
+@media (max-width: 768px) {
+
+    /* Stack image + text vertically */
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    /* Contain the image wrapper so the circle doesn't bleed off-screen */
+    .about-image {
+        width: 200px;
+        height: 200px;
+        overflow: visible;
+        margin-bottom: 40px;
+    }
+
+    /* Scale down the decorative circle so it doesn't overflow */
+    .background-circle {
+        width: 220px;
+        height: 220px;
+        top: 30px;
+        left: -20px;
+    }
+
+    .about-text {
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
 }

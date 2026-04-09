@@ -31,11 +31,14 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    color: #b76e79;
+    background-color: #fff;
     border-bottom: 1px solid #eee;
 }
 
@@ -286,7 +289,8 @@ body {
 }
 
 .envelope-icon {
-    width: 400px; /* Adjust size as needed */
+    width: 400px;
+    max-width: 100%;
     height: auto;
     margin-right: 70px;
 }
@@ -314,5 +318,44 @@ footer {
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid #eee;
+}
+
+/* ===========================
+   MOBILE RESPONSIVE FIXES
+   =========================== */
+@media (max-width: 768px) {
+
+    /* Stack form + icon vertically */
+    .contact-form {
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 16px;
+        gap: 16px;
+    }
+
+    .contact-form form {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .envelope-icon {
+        width: 180px;
+        margin-right: 0;
+        order: -1; /* show icon above form */
+    }
+
+    .contact-form h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .contact-info {
+        width: 100%;
+    }
 }
 

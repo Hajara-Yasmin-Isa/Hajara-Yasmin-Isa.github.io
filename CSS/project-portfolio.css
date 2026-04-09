@@ -31,6 +31,9 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -194,12 +197,10 @@ header .hamburger-menu {
 }
 
 .project-image {
-    max-width: 100%; /* Ensures the image doesn't overflow */
-    height: auto; /* Maintains aspect ratio */
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
-    margin: 2px 0; /* Further reduced margin to minimize space around the image */
-    transform: scale(0.5); /* Adjust scaling to fit the card proportionately */
-    transform-origin: center;
+    margin: 8px 0;
 }
 
 
