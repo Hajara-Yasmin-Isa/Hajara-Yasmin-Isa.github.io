@@ -445,4 +445,264 @@ footer {
       padding: 12px;
     }
   }
+
+/* ============================================
+   3D DEPTH, PARALLAX & SCROLL ENHANCEMENTS
+   ============================================ */
+
+/* Scroll progress glow bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #b76e79, #d78a8a, #d9a4a4);
+    box-shadow: 0 0 14px rgba(183, 110, 121, 0.8), 0 0 4px rgba(183, 110, 121, 0.5);
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.07s linear;
+}
+
+/* Hero: full-viewport so users must scroll to discover news */
+.hero {
+    min-height: 100vh;
+}
+
+/* Portrait entrance (slides in from left) then infinite 3D float */
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px) scale(0.95); }
+    to   { opacity: 1; transform: translateX(0)     scale(1);    }
+}
+
+@keyframes float3D {
+    0%   { transform: translateY(0)     rotate3d(0.3, 1,   0,  0deg); }
+    33%  { transform: translateY(-14px) rotate3d(1,   0.3, 0,  3deg); }
+    66%  { transform: translateY(-8px)  rotate3d(0,   1,   0.3, -3deg); }
+    100% { transform: translateY(0)     rotate3d(0.3, 1,   0,  0deg); }
+}
+
+.portrait {
+    animation: fadeInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) both,
+               float3D 8s ease-in-out 0.9s infinite;
+    filter: drop-shadow(0 20px 40px rgba(183, 110, 121, 0.45));
+}
+
+/* Intro text entrance (slides in from right) */
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px) scale(0.95); }
+    to   { opacity: 1; transform: translateX(0)    scale(1);    }
+}
+
+.intro {
+    animation: fadeInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+/* Scroll hint chevron at bottom of hero */
+.scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 4;
+    opacity: 0;
+    animation: hintAppear 0.6s ease 2s forwards;
+    pointer-events: none;
+}
+
+@keyframes hintAppear {
+    to { opacity: 0.6; }
+}
+
+.scroll-hint span {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b76e79;
+}
+
+.scroll-arrow {
+    width: 16px;
+    height: 16px;
+    border-right: 2px solid #b76e79;
+    border-bottom: 2px solid #b76e79;
+    transform: rotate(45deg);
+    animation: arrowBounce 1.4s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: rotate(45deg) translate(0, 0);      }
+    50%       { transform: rotate(45deg) translate(5px, 5px);  }
+}
+
+/* Wave SVG divider */
+.wave-divider {
+    display: block;
+    line-height: 0;
+    margin-bottom: -2px;
+    position: relative;
+    z-index: 5;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Scroll reveal: elements start hidden, rise into view */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px) scale(0.97);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* 3D perspective container for carousel */
+.carousel-wrapper {
+    perspective: 1400px;
+    perspective-origin: 50% 25%;
+}
+
+/* Carousel cards: depth shadow on hover */
+.carousel-item {
+    transition: box-shadow 0.4s ease;
+    will-change: transform;
+}
+
+.carousel-item:hover {
+    box-shadow: 0 28px 65px rgba(0, 0, 0, 0.22);
+}
+
+/* Pink slab: elevated depth shadow */
+.pink-slab {
+    box-shadow: 0 -12px 50px rgba(0, 0, 0, 0.14);
+}
+
+/* Mobile: tighten scroll-hint */
+@media (max-width: 768px) {
+    .scroll-hint { bottom: 18px; }
+    .hero { min-height: 100svh; }
+    .wave-divider svg { height: 50px; }
+}
+
+/* ── Hero affiliation line ───────────────────────────────── */
+.intro-affiliation {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b76e79;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* ── Hero CTA buttons ────────────────────────────────────── */
+.hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #b76e79, #d78a8a);
+    color: white;
+    box-shadow: 0 6px 22px rgba(183, 110, 121, 0.38);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(183, 110, 121, 0.5);
+}
+
+.btn-secondary {
+    border: 2px solid #b76e79;
+    color: #b76e79;
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background: #b76e79;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(183, 110, 121, 0.35);
+}
+
+/* ── Research Interests strip ────────────────────────────── */
+.research-interests {
+    background: #fff;
+    padding: 56px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 6;
+}
+
+.interests-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b76e79;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.interest-tag {
+    background: rgba(183, 110, 121, 0.07);
+    border: 1.5px solid rgba(183, 110, 121, 0.28);
+    color: #b76e79;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s, color 0.3s;
+    cursor: default;
+}
+
+.interest-tag:hover {
+    background: linear-gradient(145deg, #b76e79, #d78a8a);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 8px 25px rgba(183, 110, 121, 0.38);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .research-interests { padding: 40px 20px; }
+    .hero-cta { justify-content: center; }
+    .btn-primary, .btn-secondary { padding: 11px 22px; font-size: 0.85rem; }
+    .interest-tag { font-size: 0.85rem; padding: 8px 16px; }
+}
   

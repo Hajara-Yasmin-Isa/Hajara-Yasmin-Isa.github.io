@@ -23,7 +23,7 @@
     <nav class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">&times;</button>
         <div class="sidebar-content">
-            <a href="index.html" class="sidebar-item active">
+            <a href="index.html" class="sidebar-item">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
@@ -35,7 +35,7 @@
                 <i class="fas fa-folder-open"></i>
                 <span>Portfolio</span>
             </a>
-            <a href="bookshelf.html" class="sidebar-item">
+            <a href="bookshelf.html" class="sidebar-item active">
                 <i class="fas fa-book"></i>
                 <span>Bookshelf</span>
             </a>
@@ -49,9 +49,14 @@
     <!-- Overlay for sidebar -->
     <div class="overlay" id="overlay"></div>
 
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <h1 class="page-banner-title">Bookshelf</h1>
+        <p class="page-banner-sub">Books I've Written &middot; Books I Love</p>
+    </div>
+
     <!-- Bookshelf layout -->
     <main class="bookshelf">
-        <h1>My Bookshelf</h1>
         <div class="shelf-row">
             <!-- Add .with-image class to books with background images -->
             <div class="book with-image" style="background-image: url('images/book.png');"></div>

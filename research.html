@@ -27,7 +27,7 @@
 <nav class="sidebar" id="sidebar">
     <button class="close-btn" id="close-btn">&times;</button>
     <div class="sidebar-content">
-        <a href="index.html" class="sidebar-item active">
+        <a href="index.html" class="sidebar-item">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
@@ -35,7 +35,7 @@
             <i class="fas fa-user"></i>
             <span>About Me</span>
         </a>
-        <a href="portfolio.html" class="sidebar-item">
+        <a href="portfolio.html" class="sidebar-item active">
             <i class="fas fa-folder-open"></i>
             <span>Portfolio</span>
         </a>
@@ -53,6 +53,12 @@
 <!-- Overlay for sidebar -->
 <div class="overlay" id="overlay"></div>
 
+<!-- Page Banner -->
+<div class="page-banner">
+    <h1 class="page-banner-title">Research</h1>
+    <p class="page-banner-sub">Publications &middot; HCI &middot; CS Education &middot; AI</p>
+</div>
+
 <main>
     <h2>Selected Publications</h2>
     <table>
@@ -66,58 +72,64 @@
 
             <!-- Publication: CHI 2026 -->
             <tr>
-                <td>2026</td>
                 <td>
-                    <p><strong>Title:</strong> Code Generation to Concept Learning: Student Use of LLMs in a Web Programming Course</p>
-                    <p><strong>Authors:</strong> Hajara-Yasmin Isa; Matthew Weston; Muhammad Rizky Wellyanto; Ishita Karna; Jerry O. Talton; Ranjitha Kumar</p>
-                    <p><strong>Published In:</strong> ACM CHI Conference on Human Factors in Computing Systems (CHI '26), Barcelona, Spain</p>
-                    <p><strong>Abstract:</strong> While prior work has examined LLM usage through surveys and controlled studies in introductory courses, a gap exists in studying organic usage patterns in advanced coursework where assignments mirror real-world software challenges. We analyzed 448 LLM chat logs from 147 students enrolled in a web programming course during Fall 2023 and Fall 2024. Through open coding, we identified 14 distinct prompt-response pairs that cluster into three categories: <em>generate code</em>, <em>debug code</em>, and <em>explain programming concepts</em>. We examined how student prompt-response pairs were distributed across course assignments and how different LLM interaction behaviors correlate with individual performance outcomes.</p>
+                    <span class="venue-badge conference">CHI ‘26</span>
+                </td>
+                <td>
+                    <p class="pub-title">Code Generation to Concept Learning: Student Use of LLMs in a Web Programming Course</p>
+                    <p class="pub-authors">Hajara-Yasmin Isa; Matthew Weston; Muhammad Rizky Wellyanto; Ishita Karna; Jerry O. Talton; Ranjitha Kumar</p>
+                    <p class="pub-venue">ACM CHI Conference on Human Factors in Computing Systems (CHI ‘26), Barcelona, Spain</p>
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">DOI</a>
+                    </div>
+                    <div>
+                        <button class="abstract-toggle" onclick="this.nextElementSibling.classList.toggle(‘open’); this.textContent = this.nextElementSibling.classList.contains(‘open’) ? ‘Abstract ▴’ : ‘Abstract ▾’">Abstract ▾</button>
+                        <div class="abstract-text">While prior work has examined LLM usage through surveys and controlled studies in introductory courses, a gap exists in studying organic usage patterns in advanced coursework where assignments mirror real-world software challenges. We analyzed 448 LLM chat logs from 147 students enrolled in a web programming course during Fall 2023 and Fall 2024. Through open coding, we identified 14 distinct prompt-response pairs that cluster into three categories: <em>generate code</em>, <em>debug code</em>, and <em>explain programming concepts</em>. We examined how student prompt-response pairs were distributed across course assignments and how different LLM interaction behaviors correlate with individual performance outcomes.</div>
+                    </div>
                 </td>
             </tr>
 
-            <!-- Publication 2 -->
-
+            <!-- Publication: MobiSys 2025 -->
             <tr>
-                <td>2025</td>
                 <td>
-                    <p><strong>Title:</strong> No Wires, Just Wear: Monitoring Breathing With Smart Fabrics <i class="fas fa-trophy" style="color: #d4af37; margin-left: 6px;" title="Best Demo Award - Runner Up"></i></p>
-                    <p><strong>Authors:</strong> Hajara-Yasmin Isa; Robin Kravets</p>
-                    <p><strong>Published In:</strong> ACM MobiSys 2025</p>
-                    <p><strong>Award:</strong> Best Demo Award – Runner Up</p>
-            
-                    <p><strong>Abstract:</strong> Wearable sensing technologies offer promising solutions for non-intrusive monitoring in healthcare, fitness, and assistive applications. This paper presents a non-intrusive method for monitoring respiration using an off-the-shelf stretchable conductive fabric that serves as the sensor itself—eliminating the need for embedded components. Real-time breathing patterns are captured by measuring the fabric’s inherent resistance changes during chest expansion and contraction, using a Keysight EDU34450A Digital Multimeter to test the potential of this approach. The system is simple and does not require complex circuit fabrication, making it especially well-suited for continuous monitoring in contexts where comfort and minimal disruption are essential. Preliminary results reveal clearly distinguishable breathing cycles, demonstrating the material’s potential as a wearable and unobtrusive respiratory sensing solution.</p>
+                    <span class="venue-badge conference">MobiSys ‘25</span><br>
+                    <span class="venue-badge award" style="margin-top:4px;display:inline-block"><i class="fas fa-trophy" style="font-size:0.7rem;margin-right:3px"></i>Best Demo Runner-Up</span>
+                </td>
+                <td>
+                    <p class="pub-title">No Wires, Just Wear: Monitoring Breathing With Smart Fabrics</p>
+                    <p class="pub-authors">Hajara-Yasmin Isa; Robin Kravets</p>
+                    <p class="pub-venue">ACM International Conference on Mobile Systems, Applications, and Services (MobiSys ‘25)</p>
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">DOI</a>
+                    </div>
+                    <div>
+                        <button class="abstract-toggle" onclick="this.nextElementSibling.classList.toggle(‘open’); this.textContent = this.nextElementSibling.classList.contains(‘open’) ? ‘Abstract ▴’ : ‘Abstract ▾’">Abstract ▾</button>
+                        <div class="abstract-text">Wearable sensing technologies offer promising solutions for non-intrusive monitoring in healthcare, fitness, and assistive applications. This paper presents a non-intrusive method for monitoring respiration using an off-the-shelf stretchable conductive fabric that serves as the sensor itself—eliminating the need for embedded components. Real-time breathing patterns are captured by measuring the fabric’s inherent resistance changes during chest expansion and contraction. The system is simple and does not require complex circuit fabrication, making it especially well-suited for continuous monitoring in contexts where comfort and minimal disruption are essential.</div>
+                    </div>
                 </td>
             </tr>
 
-
-
-            <!-- Publication 1 -->
+            <!-- Publication: FIE 2024 -->
             <tr>
-                <td>2024</td>
                 <td>
-                    <p><strong>Title:</strong> GA2Graph: Visualizing Online Collaboration Patterns in Computer Science Education</p>
-                    <p><strong>Authors:</strong> Abdussalam Alawini, Hajara-Yasmin Isa, Jiabao Xu, Yutong Zhang, and Zhijun Zhao</p>
-                    <p><strong>Published In:</strong> FIE 2024</p>
-                    <p><strong>Abstract:</strong> This innovative practice full paper describes an
-                        approach to visualizing and analyzing collaborative learning.
-                        Collaborative learning is vital for enriching computer science
-                        education and developing key skills. However, educators often
-                        lack tools for effectively tracking and analyzing student en-
-                        gagement in group work. Our study introduces GA2Graph, a
-                        data-driven system that uses Neo4j to visualize and analyze
-                        online collaborative patterns in classroom activities. It graphically
-                        represents students and their interactions, helping educators
-                        understand group dynamics. We tested this system in a large-
-                        enrollment database course, revealing that despite emphasis on
-                        assigned roles like those in Process Oriented Guided Inquiry
-                        Learning (POGIL), students frequently disregarded them and
-                        adopted more individualistic or varied collaborative strategies.</p>
-
+                    <span class="venue-badge conference">FIE ‘24</span>
+                </td>
+                <td>
+                    <p class="pub-title">GA2Graph: Visualizing Online Collaboration Patterns in Computer Science Education</p>
+                    <p class="pub-authors">Abdussalam Alawini, Hajara-Yasmin Isa, Jiabao Xu, Yutong Zhang, and Zhijun Zhao</p>
+                    <p class="pub-venue">IEEE Frontiers in Education Conference (FIE ‘24)</p>
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">DOI</a>
+                    </div>
+                    <div>
+                        <button class="abstract-toggle" onclick="this.nextElementSibling.classList.toggle(‘open’); this.textContent = this.nextElementSibling.classList.contains(‘open’) ? ‘Abstract ▴’ : ‘Abstract ▾’">Abstract ▾</button>
+                        <div class="abstract-text">This innovative practice full paper describes an approach to visualizing and analyzing collaborative learning. Collaborative learning is vital for enriching computer science education and developing key skills. However, educators often lack tools for effectively tracking and analyzing student engagement in group work. Our study introduces GA2Graph, a data-driven system that uses Neo4j to visualize and analyze online collaborative patterns in classroom activities. It graphically represents students and their interactions, helping educators understand group dynamics. We tested this system in a large-enrollment database course, revealing that despite emphasis on assigned roles like those in POGIL, students frequently disregarded them and adopted more individualistic or varied collaborative strategies.</div>
+                    </div>
                 </td>
             </tr>
-
-
-            <!-- Publication 3 -->
 
             <!-- Add more publications here as needed -->
         </tbody>
@@ -125,7 +137,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2025 Hajara-Yasmin Isa. All rights reserved.</p>
+    <p>&copy; 2026 Hajara-Yasmin Isa. All rights reserved.</p>
 </footer>
     <script src="js/research.js"></script>
 </body>
